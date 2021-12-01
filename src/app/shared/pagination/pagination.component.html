@@ -1,0 +1,19 @@
+<nav aria-label="Page pagination">
+  <ul class="pagination pagination-lg flex-wrap justify-content-center">
+    <li class="page-item" [ngClass]="{ disabled: currentPage === 1 }">
+      <a class="page-link" (click)="onClickPage(currentPage - 1)" tabindex="-1"
+        >Previous</a
+      >
+    </li>
+    <li
+      class="page-item"
+      [ngClass]="{ active: currentPage === page }"
+      *ngFor="let page of pages"
+    >
+      <a class="page-link" (click)="onClickPage(page)">{{ page }}</a>
+    </li>
+    <li class="page-item" [ngClass]="{ disabled: currentPage === pages[pages.length -1] }">
+      <a class="page-link" (click)="onClickPage(currentPage + 1)">Next</a>
+    </li>
+  </ul>
+</nav>

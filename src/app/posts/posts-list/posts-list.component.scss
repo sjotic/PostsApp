@@ -1,0 +1,33 @@
+h1 {
+  color: #302b63;
+  font-weight: 400!important;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 992px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+

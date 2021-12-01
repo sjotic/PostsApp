@@ -1,0 +1,29 @@
+<div class="card mb-5" *ngIf="post">
+  <a class="post-link" [routerLink]="['/post', post.id]">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <i class="bi bi-person-circle" style="font-size: 2.4rem"></i>
+        <div class="d-flex flex-column ml-3">
+          <h5 class="font-weight-bold">@{{ post?.username }}</h5>
+          <div class="text-muted">
+            {{ post?.userFullname }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ post?.title }}</h5>
+      <p class="card-text">{{ post?.body }}</p>
+    </div>
+  </a>
+  <div class="card-footer">
+    <a class="btn btn-outline-secondary" data-toggle="collapse" href="#collapseComments{{post.id}}" role="button" aria-expanded="false" aria-controls="collapseComments">
+      <i class="bi bi-chat-fill"></i> Comments
+    </a>
+    <div class="collapse my-3" id="collapseComments{{post.id}}">
+      <app-comments-list [comments]="post?.comments"></app-comments-list>
+    </div>
+  </div>
+</div>
+
+

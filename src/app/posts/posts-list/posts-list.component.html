@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center py-5 mt-5">
+      <h1 class="display-4">Posts</h1>
+    </div>
+    <div class="input-group input-group-lg mb-4 pb-2">
+      <input
+        type="text"
+        class="form-control"
+        id="search-text"
+        aria-describedby="search-text"
+        [(ngModel)]="searchText"
+        placeholder="Search"
+      />
+    </div>
+    <div *ngIf="isLoading">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <div *ngIf="!isLoading">
+      <app-post
+        *ngFor="let post of posts | appSearch: searchText | slice: (activePage - 1) * postsPerPage : activePage * postsPerPage"
+        [post]="post"
+      ></app-post>
+    </div>
+    <div *ngIf="posts" class="my-5 pt-4">
+      <app-pagination [totalRecords]="totalPosts" [recordsPerPage]="postsPerPage" (onPageChange)="displayActivePage($event)"></app-pagination>
+    </div>
+  </div>
+</div>
