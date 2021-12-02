@@ -1,6 +1,6 @@
 import { Comment } from "./comment.model";
 
-export type Post = {
+export interface Post {
   userId: number;
   id: number;
   title: string;
@@ -8,4 +8,4 @@ export type Post = {
   comments?: Comment[];
   username?: string;
   userFullname?: string;
-};
+}
