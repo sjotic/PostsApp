@@ -1,21 +1,14 @@
-import { OnDestroy, OnInit, Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from "@angular/core";
 import { Subscription } from "rxjs";
 
 import { SharedService } from "../shared/shared.service";
 
 @Pipe({ name: 'appSearch' })
-export class SearchPipe implements PipeTransform, OnInit, OnDestroy {
+export class SearchPipe implements PipeTransform {
   searchedItems: any[];
-  itemsLength: number;
   subscription: Subscription;
 
   constructor(private _sharedService: SharedService) {}
-
-  ngOnInit(): void {
-    this.subscription = this._sharedService.currentColectionSize.subscribe(
-      collSize => this.itemsLength = collSize
-    );
-  }
   
   transform(items: any[], searchText: string): any[] {
     if (!items) {
@@ -34,11 +27,5 @@ export class SearchPipe implements PipeTransform, OnInit, OnDestroy {
     this._sharedService.changeCollectionSize(this.searchedItems.length);
 
     return this.searchedItems;
-  }
-
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 }

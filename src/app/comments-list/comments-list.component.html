@@ -1,8 +1,10 @@
-<ul class="list-group" *ngFor="let comment of comments">
-  <li class="list-group-item mx-1">
-    <div class="d-flex flex-column">
-      <p class="font-weight-bold mb-1">{{ comment.name }}:</p>
-    </div>
-    <p>{{ comment.body }}</p>
-  </li>
-</ul>
+<div *ngIf="comments">
+  <ul class="list-group" *ngFor="let comment of comments">
+    <li class="list-group-item mx-1">
+      <div class="d-flex flex-column">
+        <p class="font-weight-bold mb-1">{{ comment.name }}:</p>
+      </div>
+      <p>{{ comment.body }}</p>
+    </li>
+  </ul>
+</div>

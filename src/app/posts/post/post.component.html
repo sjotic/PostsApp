@@ -17,10 +17,10 @@
     </div>
   </a>
   <div class="card-footer">
-    <a class="btn btn-outline-secondary" data-toggle="collapse" href="#collapseComments{{post.id}}" role="button" aria-expanded="false" aria-controls="collapseComments">
+    <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" [attr.data-target]="'#collapseComments' + post.id" aria-expanded="false" [attr.aria-controls]="'collapseComments' + post.id">
       <i class="bi bi-chat-fill"></i> Comments
-    </a>
-    <div class="collapse my-3" id="collapseComments{{post.id}}">
+    </button>
+    <div class="collapse my-3" [attr.id]="'collapseComments'+post.id">
       <app-comments-list [comments]="post?.comments"></app-comments-list>
     </div>
   </div>
